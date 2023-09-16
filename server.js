@@ -3,8 +3,15 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
+const { Pool } = require("pg");
 
-
+const db = new Pool({
+  user: "postgres",
+  host: "localhost",
+  database: "cyf_energiser",
+  password: "",
+  port: 5432,
+});
 
 app.get("/energisers/:category", function (req, res) {
     const category = req.params.category;
